@@ -20,51 +20,41 @@ O problema a ser resolvido é criar um sistema que:
 - Gere estatísticas de uso para auxiliar na gestão.
   
 
+
 2. Roteiro para resolver (Criação)
    
 - Analisar requisitos:
 
 Cadastro de usuários e recursos.
-
 Entrada em fila com prioridade.
-
 Controle de reservas.
-
 Estatísticas.
-
 Modo emergência.
 
 - Escolher estruturas de dados
 
 Listas para armazenar usuários, recursos e reservas.
-
 Fila de prioridade (heapq) para gerenciar ordem de atendimento.
-
 Dicionário (dict) para mapear recurso → fila.
 
 - Definir fluxo do sistema
 
 Quando um recurso estiver disponível → alocar imediatamente.
-
 Quando indisponível → inserir na fila de prioridade.
-
 Permitir reservas futuras com checagem de horário.
-
 Ajustar prioridades quando o modo emergência for ativado.
 
 - Criar classes para organização
 
 Usuario → dados do usuário.
-
 Recurso → dados do recurso.
-
 SistemaBiblioteca → gerencia toda a lógica.
 
 - Implementar e testar
 
 Simular cenários com estudantes, professores, urgência e reservas.
-
 Validar estatísticas.
+
 
 
 3. Estruturas de dados utilizadas
@@ -77,24 +67,20 @@ Dicionário (dict)	Associa cada recurso à sua respectiva fila (self.filas).
 Classe	Estrutura cada entidade (Usuario, Recurso, SistemaBiblioteca).
 
 
+
 5. Script – Implementação (Resumo)
    
 - Classes principais
   
 Usuario → nome, tipo (0 = estudante, 1 = professor), área.
-
 Recurso → tipo (livro, computador, etc.), nome e quantidade disponível.
 
-SistemaBiblioteca:
+- Sistema Biblioteca:
 
 Cadastro de usuários e recursos.
-
 Entrada em fila com prioridade calculada.
-
 Reservas com data/hora de início e fim.
-
 Modo emergência que altera prioridade.
-
 Estatísticas de uso.
 
- Resumo do que o código simula: Esse código monta e executa um cenário realista de biblioteca universitária, com gestão automática de recursos, atendimento prioritário e monitoramento em tempo real. Cria o sistema, cadastra usuários e recursos, processa usos imediatos. Além de fazer uma reserva para o futuro e ativa um modo de atendimento prioritário. Por fim, gera um relatório de estatísticas.  É um protótipo funcional que poderia ser expandido para uso real com interface gráfica ou integração com banco de dados.
+ Em resumo do que o código simula: Esse código monta e executa um cenário realista de biblioteca universitária, com gestão automática de recursos, atendimento prioritário e monitoramento em tempo real. Cria o sistema, cadastra usuários e recursos, processa usos imediatos. Além de fazer uma reserva para o futuro e ativa um modo de atendimento prioritário. Por fim, gera um relatório de estatísticas. É um protótipo funcional que poderia ser expandido para uso real com interface gráfica ou integração com banco de dados.
