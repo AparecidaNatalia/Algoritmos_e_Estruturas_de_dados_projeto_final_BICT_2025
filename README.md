@@ -18,6 +18,7 @@ O problema a ser resolvido é criar um sistema que:
 - Ative modo emergência para reorganizar prioridades em períodos críticos (como semanas de prova).
 
 - Gere estatísticas de uso para auxiliar na gestão.
+  
 
 2. Roteiro para resolver (Criação)
    
@@ -65,6 +66,7 @@ Simular cenários com estudantes, professores, urgência e reservas.
 
 Validar estatísticas.
 
+
 3. Estruturas de dados utilizadas
    
 - Estrutura	Uso no código
@@ -73,6 +75,7 @@ Lista (list)	Armazena todos os usuários (self.usuarios), recursos (self.recurso
 Heap (heapq)	Implementa a fila de prioridade para uso de recursos (self.filas[recurso]).
 Dicionário (dict)	Associa cada recurso à sua respectiva fila (self.filas).
 Classe	Estrutura cada entidade (Usuario, Recurso, SistemaBiblioteca).
+
 
 5. Script – Implementação (Resumo)
    
@@ -96,14 +99,4 @@ Estatísticas de uso.
 
  Resumo do que o código simula:
 
-Cria o sistema.
-
-Cadastra usuários e recursos.
-
-Processa usos imediatos.
-
-Faz uma reserva para o futuro.
-
-Ativa um modo de atendimento prioritário.
-
-Gera um relatório de estatísticas.
+Cria o sistema, cadastra usuários e recursos, processa usos imediatos. Além de fazer uma reserva para o futuro e ativa um modo de atendimento prioritário. Por fim, gera um relatório de estatísticas.
