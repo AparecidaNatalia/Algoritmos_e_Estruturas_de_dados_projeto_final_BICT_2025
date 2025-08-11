@@ -1,0 +1,76 @@
+from datetime import datetime, timedelta
+from collections import deque
+
+# Painel de controle de uma Biblioteca
+
+class Usuario:
+    def __init__(self, nome, tipo, curso):
+        self.nome = nome
+        self.tipo = tipo  # 0 = Estudante, 1 = Professor
+        self.curso = curso
+
+    def __repr__(self):
+        tipo_str = "Professor" if self.tipo == 1 else "Estudante"
+        return f"{self.nome} ({tipo_str} - {self.curso})"
+
+
+class Recurso:
+    def __init__(self, tipo, nome, quantidade):
+        self.tipo = tipo
+        self.nome = nome
+        self.quantidade = quantidade
+        self.fila = deque()
+        self.reservas = []
+
+    def __repr__(self):
+        return f"{self.nome} ({self.tipo}, {self.quantidade} disponíveis)"
+
+
+class SistemaBiblioteca:
+    def __init__(self):
+        self.usuarios = []
+        self.recursos = []
+        self.modo_emergencia = False
+
+    # 1. Cadastrar usuário
+    def cadastrar_usuario(self, nome, tipo, curso):
+        usuario = Usuario(nome, tipo, curso)
+        self.usuarios.append(usuario)
+        print(f"Usuário cadastrado: {usuario}")
+        return usuario
+
+    # 2. Cadastrar recurso
+    def cadastrar_recurso(self, tipo, nome, quantidade):
+        recurso = Recurso(tipo, nome, quantidade)
+        self.recursos.append(recurso)
+        print(f"Recurso cadastrado: {recurso}")
+        return recurso
+
+    # 3. Entrar na fila de uso
+    def entrar_fila(self, usuario, recurso, tempo_minutos, urgente=False):
+        if urgente:
+            recurso.fila.appendleft((usuario, tempo_minutos))
+        else:
+            recurso.fila.append((usuario, tempo_minutos))
+        print(f"{usuario.nome} entrou na fila para usar {recurso.nome} por {tempo_minutos} minutos.")
+
+    # 4. Reservar para o futuro
+    def reservar_recurso(self, usuario, recurso, inicio, fim):
+        recurso.reservas.append({"usuario": usuario, "inicio": inicio, "fim": fim})
+        print(f"Reserva feita: {usuario.nome} → {recurso.nome} ({inicio} - {fim})")
+
+    # 5. Ativar modo emergência
+    def ativar_modo_emergencia(self, status):
+        self.modo_emergencia = status
+        if status:
+            print("Modo emergência ativado! Prioridade para professores.")
+        else:
+            print("Modo emergência desativado.")
+
+    # 6. Gerar estatísticas simples
+    def gerar_estatisticas(self):
+        print("\n Estatísticas da Biblioteca")
+        print(f"Total de usuários: {len(self.usuarios)}")
+        print(f"Total de recursos: {len(self.recursos)}")
+        for recurso in self.recursos:
+            print(f"- {recurso.nome}: {len(recurso.fila)} na fila, {len(recurso.reservas)} reservas")
