@@ -1,0 +1,27 @@
+# Projeto final
+# Painel de controle de uma Biblioteca
+
+# 1. Criar o sistema
+sistema = SistemaBiblioteca()
+
+# 2. Cadastrar usuários
+estudante = sistema.cadastrar_usuario("Carlos", 0, "Biologia")
+professor = sistema.cadastrar_usuario("Dr. Silva", 1, "Medicina")
+
+# 3. Cadastrar recursos
+pc = sistema.cadastrar_recurso("computador", "PC Pesquisa", 10)
+livro_raro = sistema.cadastrar_recurso("livro", "Anatomia Gray", 3)
+
+# 4. Usar recursos
+sistema.entrar_fila(estudante, pc, 90)
+sistema.entrar_fila(professor, livro_raro, 120, urgente=True)
+
+# 5. Reservar para o futuro
+amanha = datetime.now() + timedelta(days=1)
+sistema.reservar_recurso(professor, livro_raro, amanha, amanha + timedelta(hours=3))
+
+# 6. Ativar modo emergência
+sistema.ativar_modo_emergencia(True)
+
+# 7. Estatísticas
+sistema.gerar_estatisticas()
