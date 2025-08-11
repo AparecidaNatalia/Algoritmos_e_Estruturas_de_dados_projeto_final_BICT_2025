@@ -5,12 +5,12 @@
 sistema = SistemaBiblioteca()
 
 # 2. Cadastrar usuários
-estudante = sistema.cadastrar_usuario("Carlos", 0, "Biologia")
-professor = sistema.cadastrar_usuario("Dr. Silva", 1, "Medicina")
+estudante = sistema.cadastrar_usuario("Natália", 0, "Ciência e Tecnologia")
+professor = sistema.cadastrar_usuario("Dr. Cleiton", 1, "Ciênica e Tecnologia")
 
 # 3. Cadastrar recursos
 pc = sistema.cadastrar_recurso("computador", "PC Pesquisa", 10)
-livro_raro = sistema.cadastrar_recurso("livro", "Anatomia Gray", 3)
+livro_raro = sistema.cadastrar_recurso("livro", "Cálculo", 3)
 
 # 4. Usar recursos
 sistema.entrar_fila(estudante, pc, 90)
