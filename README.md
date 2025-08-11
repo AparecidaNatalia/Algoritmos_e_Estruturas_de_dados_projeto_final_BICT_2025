@@ -97,6 +97,4 @@ Modo emergência que altera prioridade.
 
 Estatísticas de uso.
 
- Resumo do que o código simula:
-
-Cria o sistema, cadastra usuários e recursos, processa usos imediatos. Além de fazer uma reserva para o futuro e ativa um modo de atendimento prioritário. Por fim, gera um relatório de estatísticas.
+ Resumo do que o código simula: Esse código monta e executa um cenário realista de biblioteca universitária, com gestão automática de recursos, atendimento prioritário e monitoramento em tempo real. Cria o sistema, cadastra usuários e recursos, processa usos imediatos. Além de fazer uma reserva para o futuro e ativa um modo de atendimento prioritário. Por fim, gera um relatório de estatísticas.  É um protótipo funcional que poderia ser expandido para uso real com interface gráfica ou integração com banco de dados.
